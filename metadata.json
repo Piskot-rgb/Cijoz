@@ -1,0 +1,6 @@
+{
+  "name": "Tabletop Chess",
+  "description": "Clean offline 2D local 1v1 chess for two players facing each other across one device, enforcing all official chess rules including check and checkmate.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "chess-1v1",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Offline 2D local 1v1 chess game packaged as a Capacitor web project.",
+  "scripts": {
+    "dev": "node -e \"const http=require('http'),fs=require('fs'),path=require('path'),m={'.html':'text/html; charset=utf-8','.json':'application/json; charset=utf-8','.css':'text/css','.js':'application/javascript','.svg':'image/svg+xml','.png':'image/png'};http.createServer((q,s)=>{const u=(q.url||'/').split('?')[0];let f=path.join(process.cwd(),'www',u==='/'?'index.html':u);if(!fs.existsSync(f)||fs.statSync(f).isDirectory())f=path.join(process.cwd(),'www','index.html');s.writeHead(200,{'Content-Type':m[path.extname(f)]||'application/octet-stream'});fs.createReadStream(f).pipe(s);}).listen(3000,'0.0.0.0',()=>console.log('Serving www on http://0.0.0.0:3000'));\"",
+    "build": "node -e \"const fs=require('fs');if(!fs.existsSync('www/index.html')||!fs.existsSync('www/manifest.json'))process.exit(1);console.log('Offline www bundle verified.');\"",
+    "lint": "node -e \"const fs=require('fs'),vm=require('vm');const html=fs.readFileSync('www/index.html','utf8');const m=html.match(/<script>([\\s\\S]*?)<\\/script>/);if(!m)process.exit(1);new vm.Script(m[1]);JSON.parse(fs.readFileSync('www/manifest.json','utf8'));JSON.parse(fs.readFileSync('capacitor.config.json','utf8'));console.log('Syntax and JSON validation passed.');\"",
+    "cap:sync": "npx cap sync"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/cli": "^6.1.2"
+  }
+}

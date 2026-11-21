@@ -1,0 +1,7 @@
+{
+  "name": "Chess 1v1",
+  "short_name": "Chess 1v1",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}
